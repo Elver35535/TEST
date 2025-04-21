@@ -172,21 +172,10 @@
 
   <!-- Contenido principal -->
   <div class="container">
-    <div class="title" id="step1">
-      Tengo experiencia sexual, soy bailarina y doy masajes eróticos. ¿Te gustaría saber más?
-    </div>
-    <button class="btn btn-yes" onclick="showStep2()">Sí</button>
-    <button class="btn btn-no" onclick="alert('Gracias por tu visita')">No</button>
-
-    <div class="title hidden" id="step2">
-      ¡Genial! Solo queda un paso. Haz clic en ENTRAR para registrarte gratis y comenzar.
-    </div>
-    <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" 
-       class="btn btn-yes hidden" id="finalBtn">ENTRAR</a>
-  </div>
-
-  <script>
-    function showStep2() {
-      document.getElementById('step1').classList.add('hidden');
-      document.getElementById('step2').classList.remove('hidden');
-      document.getElementById('finalBtn').
+    <!-- Paso 1 -->
+    <div id="step1">
+      <div class="title">
+        Tengo experiencia sexual, soy bailarina y doy masajes eróticos. ¿Te gustaría saber más?
+      </div>
+      <button class="btn btn-yes" onclick="showStep2()">Sí</button>
+      <button class="btn btn-no" onclick="alert('Gracias por tu
