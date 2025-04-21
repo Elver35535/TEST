@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Catálogo Privado</title>
   <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
   <style>
@@ -13,28 +13,27 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
-    body, html {
+    html, body {
       height: 100%;
       width: 100%;
       overflow: hidden;
-      background-color: #0e0e0e;
+      background-color: #0a0a0a;
       color: #fff;
     }
 
-    /* Fondo rotativo */
     .slideshow {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
       height: 100%;
+      width: 100%;
       z-index: -1;
     }
 
     .slide {
       position: absolute;
-      width: 100%;
       height: 100%;
+      width: 100%;
       background-size: cover;
       background-position: center;
       opacity: 0;
@@ -45,7 +44,6 @@
       opacity: 1;
     }
 
-    /* Contenedor */
     .container {
       height: 100vh;
       display: flex;
@@ -55,14 +53,14 @@
     }
 
     .card {
-      background: rgba(30, 30, 30, 0.75);
+      background: rgba(20, 20, 20, 0.7);
+      backdrop-filter: blur(8px);
       border-radius: 20px;
       padding: 40px 30px;
-      box-shadow: 0 0 40px rgba(255, 0, 100, 0.2);
+      box-shadow: 0 0 30px rgba(255, 0, 100, 0.25);
       text-align: center;
       max-width: 400px;
       width: 100%;
-      backdrop-filter: blur(10px);
       animation: fadeIn 1s ease-out;
     }
 
@@ -77,9 +75,10 @@
     }
 
     .question-title {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 30px;
       line-height: 1.6;
+      color: #f3f3f3;
     }
 
     .buttons {
@@ -95,21 +94,22 @@
       font-size: 1rem;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: all 0.3s ease;
     }
 
     .btn-yes {
-      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      background: linear-gradient(135deg, #ff3366, #ff0055);
       color: white;
     }
 
     .btn-no {
-      background: #2e2e2e;
-      color: #ccc;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ddd;
     }
 
     .btn:hover {
       transform: scale(1.03);
+      opacity: 0.9;
     }
 
     .hidden {
@@ -123,26 +123,31 @@
 </head>
 <body>
 
-<!-- 🖼 Fondo de imágenes dinámico -->
+<!-- Slideshow -->
 <div class="slideshow">
-  <div class="slide active" style="background-image: url('https://i.postimg.cc/KjzxqTLS/Screenshot-5.png');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/9XQvTtF.jpg');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/8QTRU4k.jpg');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/LzMGPWu.jpg');"></div>
+  <div class="slide active" style="background-image: url('https://i.postimg.cc/15CGWQ5c/imagen-2025-04-20-203019243.png');"></div>
+  <div class="slide" style="background-image: url('https://i.postimg.cc/N0TRf28p/488919325-966942938856625-8704876981167329644-n.jpg');"></div>
+  <div class="slide" style="background-image: url('https://i.postimg.cc/Y9HY42bk/487147419-966660508884868-5803246115928864236-n.jpg');"></div>
+  <div class="slide" style="background-image: url('https://i.postimg.cc/bJ9b1XBn/489200731-995206476050194-1788215744948694433-n.jpg');"></div>
+  <div class="slide" style="background-image: url('https://i.postimg.cc/yxfZrmBY/489018723-979986394319440-2813367749526607405-n.jpg');"></div>
+  <div class="slide" style="background-image: url('https://i.postimg.cc/FsRckBgf/488949022-966722795545306-2261480847574893427-n.jpg');"></div>
+  <div class="slide" style="background-image: url('https://i.postimg.cc/KvHTPDJ0/488187968-1375836010222629-7759032584575477384-n.jpg');"></div>
+  <div class="slide" style="background-image: url('https://i.postimg.cc/0NgJ32gm/487315195-122129180318674021-3459574960417213013-n.jpg');"></div>
+  <div class="slide" style="background-image: url('https://i.postimg.cc/tghVHQyc/image-2025-03-12-T05-51-36-938-Z.png');"></div>
 </div>
 
-<!-- 💬 Contenido principal -->
+<!-- Contenido -->
 <div class="container">
   <div class="card" id="step1">
     <div class="logo">
-      <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo">
+      <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo" />
     </div>
     <div class="question-title">
       Servicio nocturno disponible en toda la ciudad.<br><strong>¿Te gustaría ver mi catálogo privado?</strong>
     </div>
     <div class="buttons">
       <button class="btn btn-yes" onclick="showStep2()">Sí, muéstramelo</button>
-      <button class="btn btn-no" onclick="alert('Entendido, gracias por tu tiempo.')">No, gracias</button>
+      <button class="btn btn-no" onclick="alert('Entendido. Vuelve cuando quieras 😉')">No, gracias</button>
     </div>
   </div>
 
@@ -159,7 +164,7 @@
   </div>
 </div>
 
-<!-- ⚙️ Script para rotar imágenes -->
+<!-- Slideshow Script -->
 <script>
   const slides = document.querySelectorAll('.slide');
   let current = 0;
@@ -168,7 +173,7 @@
     slides[current].classList.remove('active');
     current = (current + 1) % slides.length;
     slides[current].classList.add('active');
-  }, 4000); // Cambia cada 4 segundos
+  }, 4500); // Cambia cada 4.5 segundos
 </script>
 
 <script>
