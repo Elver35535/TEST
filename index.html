@@ -1,185 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Catálogo Privado</title>
-  <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Discreet Meetings</title>
   <style>
+    /* Estilos base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
     }
 
-    html, body {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      background-color: #0a0a0a;
-      color: #fff;
-    }
-
-    .slideshow {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-    }
-
-    .slide {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
-    }
-
-    .slide.active {
-      opacity: 1;
-    }
-
-    .container {
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab); /* Fondo con degradado */
+      color: white;
       height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      text-align: center;
       padding: 20px;
     }
 
-    .card {
-      background: rgba(20, 20, 20, 0.7);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      padding: 40px 30px;
-      box-shadow: 0 0 30px rgba(255, 0, 100, 0.25);
-      text-align: center;
-      max-width: 400px;
+    .container {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 25px;
+      border-radius: 12px;
       width: 100%;
-      animation: fadeIn 1s ease-out;
+      max-width: 400px;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: scale(0.95);}
-      to {opacity: 1; transform: scale(1);}
-    }
-
-    .logo img {
-      width: 80px;
-      margin-bottom: 20px;
-    }
-
-    .question-title {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      line-height: 1.6;
-      color: #f3f3f3;
-    }
-
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+    .title {
+      font-size: 18px;
+      margin-bottom: 25px;
     }
 
     .btn {
+      display: block;
+      width: 100%;
       padding: 14px;
+      margin-top: 10px;
       border: none;
-      border-radius: 10px;
-      font-size: 1rem;
+      border-radius: 6px;
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background 0.3s;
     }
 
     .btn-yes {
-      background: linear-gradient(135deg, #ff3366, #ff0055);
+      background-color: #27ae60;
       color: white;
     }
 
-    .btn-no {
-      background: rgba(255, 255, 255, 0.1);
-      color: #ddd;
+    .btn-yes:hover {
+      background-color: #219150;
     }
 
-    .btn:hover {
-      transform: scale(1.03);
-      opacity: 0.9;
+    .btn-no {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    .btn-no:hover {
+      background-color: #c0392b;
     }
 
     .hidden {
       display: none;
     }
 
-    .fade-in {
-      animation: fadeIn 0.5s ease forwards;
+    @media (max-width: 480px) {
+      .title {
+        font-size: 16px;
+      }
+
+      .btn {
+        font-size: 14px;
+        padding: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- Slideshow -->
-<div class="slideshow">
-  <div class="slide active" style="background-image: url('https://i.imgur.com/imagen1.jpg');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/imagen2.jpg');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/imagen3.jpg');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/imagen4.jpg');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/imagen5.jpg');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/imagen6.jpg');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/imagen7.jpg');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/imagen8.jpg');"></div>
-  <div class="slide" style="background-image: url('https://i.imgur.com/imagen9.jpg');"></div>
-</div>
+  <div class="container">
+    <div class="title" id="step1">
+      Tengo experiencia sexual, soy bailarina y ofrezco masajes eróticos. ¿Te interesa continuar?
+    </div>
+    <button class="btn btn-yes" onclick="showStep2()">Sí</button>
+    <button class="btn btn-no" onclick="alert('Gracias por tu visita')">No</button>
 
-<!-- Contenido -->
-<div class="container">
-  <div class="card" id="step1">
-    <div class="logo">
-      <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo" />
+    <div class="title hidden" id="step2">
+      ¡Felicidades! Solo queda un paso. Haz clic en ENTRAR y completa el formulario gratuito.
     </div>
-    <div class="question-title">
-      Servicio nocturno disponible en toda la ciudad.<br><strong>¿Te gustaría ver mi catálogo privado?</strong>
-    </div>
-    <div class="buttons">
-      <button class="btn btn-yes" onclick="showStep2()">Sí, muéstramelo</button>
-      <button class="btn btn-no" onclick="alert('Entendido. Vuelve cuando quieras 😉')">No, gracias</button>
-    </div>
+    <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" 
+       id="finalBtn"
+       class="btn btn-yes hidden">ENTRAR</a>
   </div>
 
-  <div class="card hidden" id="step2">
-    <div class="question-title">
-      ⚠️ <strong>Advertencia:</strong><br>¿Aceptas respetar la privacidad de las personas que verás a continuación?
-      Si reconoces a alguien, no compartas ni difundas información.
-    </div>
-    <div class="buttons">
-      <a class="btn btn-yes" href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}">
-        Sí, acepto las condiciones
-      </a>
-    </div>
-  </div>
-</div>
+  <script>
+    function showStep2() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+      document.getElementById('finalBtn').classList.remove('hidden');
+    }
+  </script>
 
-<!-- Slideshow Script -->
-<script>
-  const slides = document.querySelectorAll('.slide');
-  let current = 0;
-
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 4500); // Cambia cada 4.5 segundos
-</script>
-
-<script>
-  function showStep2() {
-    document.getElementById('step1').classList.add('hidden');
-    const step2 = document.getElementById('step2');
-    step2
-::contentReference[oaicite:0]{index=0}
- 
+</body>
+</html>
