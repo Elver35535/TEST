@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Catálogo Privado</title>
   <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
   <style>
@@ -10,32 +10,47 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     body, html {
       height: 100%;
-      background-color: #0e0e0e;
+      width: 100%;
       overflow: hidden;
+      background-color: #0e0e0e;
       color: #fff;
     }
 
-    #VideoBg {
+    /* Fondo rotativo */
+    .slideshow {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
+      width: 100%;
+      height: 100%;
       z-index: -1;
-      filter: blur(6px) brightness(0.4);
     }
 
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    /* Contenedor */
     .container {
       height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       padding: 20px;
     }
 
@@ -45,8 +60,8 @@
       padding: 40px 30px;
       box-shadow: 0 0 40px rgba(255, 0, 100, 0.2);
       text-align: center;
-      width: 100%;
       max-width: 400px;
+      width: 100%;
       backdrop-filter: blur(10px);
       animation: fadeIn 1s ease-out;
     }
@@ -108,17 +123,22 @@
 </head>
 <body>
 
-<video autoplay muted loop id="VideoBg">
-  <source src="https://cdn-dimi.akamaized.net/landings/275415/1665133459/images/4.mp4" type="video/mp4">
-</video>
+<!-- 🖼 Fondo de imágenes dinámico -->
+<div class="slideshow">
+  <div class="slide active" style="background-image: url('https://i.postimg.cc/KjzxqTLS/Screenshot-5.png');"></div>
+  <div class="slide" style="background-image: url('https://i.imgur.com/9XQvTtF.jpg');"></div>
+  <div class="slide" style="background-image: url('https://i.imgur.com/8QTRU4k.jpg');"></div>
+  <div class="slide" style="background-image: url('https://i.imgur.com/LzMGPWu.jpg');"></div>
+</div>
 
+<!-- 💬 Contenido principal -->
 <div class="container">
   <div class="card" id="step1">
     <div class="logo">
       <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo">
     </div>
     <div class="question-title">
-      Servicio nocturno disponible en toda la ciudad. <br><strong>¿Te gustaría ver mi catálogo privado?</strong>
+      Servicio nocturno disponible en toda la ciudad.<br><strong>¿Te gustaría ver mi catálogo privado?</strong>
     </div>
     <div class="buttons">
       <button class="btn btn-yes" onclick="showStep2()">Sí, muéstramelo</button>
@@ -128,7 +148,8 @@
 
   <div class="card hidden" id="step2">
     <div class="question-title">
-      ⚠️ <strong>Advertencia:</strong> ¿Aceptas respetar la privacidad de las personas que verás a continuación? Si reconoces a alguien, no compartas ni difundas información.
+      ⚠️ <strong>Advertencia:</strong><br>¿Aceptas respetar la privacidad de las personas que verás a continuación?
+      Si reconoces a alguien, no compartas ni difundas información.
     </div>
     <div class="buttons">
       <a class="btn btn-yes" href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}">
@@ -137,6 +158,18 @@
     </div>
   </div>
 </div>
+
+<!-- ⚙️ Script para rotar imágenes -->
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000); // Cambia cada 4 segundos
+</script>
 
 <script>
   function showStep2() {
