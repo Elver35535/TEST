@@ -1,73 +1,151 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="es">
 <head>
-<script id="_wau1ca">var _wau = _wau || []; _wau.push(["dynamic", "stronger100", "1ca", "ffffffffffff", "small"]);</script><script async src="//waust.at/d.js"></script> 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="robots" content="noindex, nofollow">
-<title>D1scrètes Incontri</title>
-<meta content='https://i.postimg.cc/SQVxd77J/Vista-Uno-Sepia.png' property='og:image'/>
-<script src="https://cdn.smrt-content.com/assets/1004/js/jquery.min.js"></script>
-<script src="https://cdn.smrt-content.com/assets/1004/js/device.min.js"></script>
-<script src="https://cdn.smrt-content.com/assets/1004/js/custom.js"></script>
-<script src="https://cdn.smrt-content.com/assets/1004/js/backoffer.js"></script>
-<link rel="stylesheet" href="https://cdn.smrt-content.com/assets/1004/css/index.css">
-<link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
-<title>GALLERIA IMMAGINI</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Privado</title>
+  <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-<!-- Script para permitir solo móviles -->
-<script>
-  if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    window.location.href = "https://www.google.com";
-  }
-</script>
+    body, html {
+      height: 100%;
+      background-color: #0e0e0e;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    #VideoBg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      filter: blur(6px) brightness(0.4);
+    }
+
+    .container {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(30, 30, 30, 0.75);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 0 40px rgba(255, 0, 100, 0.2);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    .logo img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    .question-title {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: white;
+    }
+
+    .btn-no {
+      background: #2e2e2e;
+      color: #ccc;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease forwards;
+    }
+  </style>
 </head>
 <body>
-<div class="layer">
-</div>
-<div class="wrap">
-  <div class="step-block">
+
+<video autoplay muted loop id="VideoBg">
+  <source src="https://cdn-dimi.akamaized.net/landings/275415/1665133459/images/4.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+  <div class="card" id="step1">
     <div class="logo">
-      <img src="" alt="">
+      <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo">
     </div>
-    <div class="step-item" style="display: block;">
-      <div class="question-title ">
-        Verremo da te di notte, i servizi sono disponibili in tutta la città. Ti piacerebbe vedere il mio catalogo?
-      </div>
-      <div class="buttons-block">
-        <div class="step-btn no-btn tr-next-button tr-b-option">
-          No
-        </div>
-        <div class="step-btn yes-btn tr-next-button tr-b-option">
-          Sì
-        </div>
-      </div>
+    <div class="question-title">
+      Servicio nocturno disponible en toda la ciudad. <br><strong>¿Te gustaría ver mi catálogo privado?</strong>
     </div>
-    <div class="step-item thishide" style="display: none;">
-      <div class="question-title ">
-        ATTENZIONE! Accetti di rispettare le donne che vedrai dopo? Se conosci qualcuno, non dirglielo e non diffondere pettegolezzi...
-      </div>
-      <p>
-        <b style="color: red;">
-        </b>
-      </p>
-      <div class="buttons-block">
-        <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" class="step-btn submit-btn tr-submit-button showmail">Accetto
-        </a>
-      </div>
+    <div class="buttons">
+      <button class="btn btn-yes" onclick="showStep2()">Sí, muéstramelo</button>
+      <button class="btn btn-no" onclick="alert('Entendido, gracias por tu tiempo.')">No, gracias</button>
     </div>
-    <video autoplay muted loop id="VideoBg">
-      <source src="https://cdn77-vid-mp4.xvideos-cdn.com/NrI-9u_A9xGDFVqrq1cCLw==,1737966589/videos/mp4/7/2/5/xvideos.com_725b860aa69386510f8343555c9a0e59.mp4?ui=MTg2Ljg5LjI1MC40Ny05MjkzNTc0MTktL3ZpZGVvLm90aXZmaW05MmRlL2xhX3ZhcXVlcmFf" type="video/mp4">
-    </video>
+  </div>
+
+  <div class="card hidden" id="step2">
+    <div class="question-title">
+      ⚠️ <strong>Advertencia:</strong> ¿Aceptas respetar la privacidad de las personas que verás a continuación? Si reconoces a alguien, no compartas ni difundas información.
+    </div>
+    <div class="buttons">
+      <a class="btn btn-yes" href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}">
+        Sí, acepto las condiciones
+      </a>
+    </div>
   </div>
 </div>
-<script type="text/javascript">
-  /*<![CDATA[*/    
-  (function(w){
-    w.backOfferUrl = ''    
-  }(window));
-  /*]]>*/ 
+
+<script>
+  function showStep2() {
+    document.getElementById('step1').classList.add('hidden');
+    const step2 = document.getElementById('step2');
+    step2.classList.remove('hidden');
+    step2.classList.add('fade-in');
+  }
 </script>
+
 </body>
 </html>
