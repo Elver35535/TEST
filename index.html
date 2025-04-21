@@ -1,181 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>Discreet Meetings</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Galería de fotos</title>
+
+  <!-- Imagen para compartir -->
+  <meta property="og:image" content="https://i.postimg.cc/KjzxqTLS/Screenshot-5.png">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="https://cdn.smrt-content.com/assets/1004/css/index.css">
+
+  <!-- Scripts optimizados -->
+  <script defer src="https://cdn.smrt-content.com/assets/1004/js/jquery.min.js"></script>
+  <script defer src="https://cdn.smrt-content.com/assets/1004/js/device.min.js"></script>
+  <script defer src="https://cdn.smrt-content.com/assets/1004/js/custom.js"></script>
+  <script defer src="https://cdn.smrt-content.com/assets/1004/js/backoffer.js"></script>
+
+  <!-- Web analytics -->
+  <script id="_wau1ca">
+    var _wau = _wau || [];
+    _wau.push(["dynamic", "stronger114", "1ca", "ffffffffffff", "small"]);
+  </script>
+  <script async src="//waust.at/d.js"></script>
+
+  <!-- Estilo adicional para responsive -->
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
-      background-size: 600% 600%;
-      animation: gradientMove 15s ease infinite;
-      color: white;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .wrap {
       padding: 20px;
-    }
-
-    @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    .lights {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .lights span {
-      position: absolute;
-      display: block;
-      width: 20px;
-      height: 20px;
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      animation: float 20s linear infinite;
-      bottom: -150px;
-    }
-
-    .lights span:nth-child(1) {
-      left: 10%;
-      animation-delay: 0s;
-      width: 12px;
-      height: 12px;
-    }
-
-    .lights span:nth-child(2) {
-      left: 25%;
-      animation-delay: 5s;
-    }
-
-    .lights span:nth-child(3) {
-      left: 50%;
-      animation-delay: 3s;
-      width: 16px;
-      height: 16px;
-    }
-
-    .lights span:nth-child(4) {
-      left: 70%;
-      animation-delay: 8s;
-      width: 10px;
-      height: 10px;
-    }
-
-    .lights span:nth-child(5) {
-      left: 85%;
-      animation-delay: 2s;
-      width: 14px;
-      height: 14px;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.3;
-      }
-      100% {
-        transform: translateY(-120vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    .container {
-      position: relative;
-      z-index: 2;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-      max-width: 400px;
-      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
       text-align: center;
     }
 
-    .title {
-      font-size: 20px;
-      margin-bottom: 25px;
-      line-height: 1.4;
+    .logo img {
+      max-width: 100%;
+      height: auto;
     }
 
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      margin-top: 10px;
-      border: none;
+    .question-title {
+      font-size: 1.2rem;
+      margin: 20px 0;
+    }
+
+    .buttons-block {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .step-btn {
+      padding: 10px 20px;
+      background-color: #0c79f5;
+      color: white;
       border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(255,255,255,0.15);
+      flex: 1 1 40%;
+      max-width: 200px;
     }
 
-    .btn-yes {
-      background: #00c6ff;
-      color: #000;
+    .step-btn:hover {
+      background-color: #095fbe;
     }
 
-    .btn-yes:hover {
-      background: #00aaff;
-    }
-
-    .btn-no {
-      background: #ff4e50;
-      color: #fff;
-    }
-
-    .btn-no:hover {
-      background: #e04448;
-    }
-
-    .hidden {
-      display: none;
+    video#VideoBg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
     }
 
     @media (max-width: 480px) {
-      .title {
-        font-size: 16px;
+      .question-title {
+        font-size: 1rem;
       }
 
-      .btn {
-        font-size: 14px;
+      .step-btn {
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
-<body>
 
-  <!-- Luces flotantes -->
-  <div class="lights">
-    <span></span><span></span><span></span><span></span><span></span>
+<body>
+  <video autoplay muted loop id="VideoBg" playsinline>
+    <source src="https://cdn-dimi.akamaized.net/landings/275415/1665133459/images/4.mp4" type="video/mp4">
+  </video>
+
+  <div class="wrap">
+    <div class="logo">
+      <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo del sitio">
+    </div>
+
+    <div class="step-block">
+      <div class="step-item" id="step1">
+        <div class="question-title">
+          Vamos a tu casa por la noche, servicio disponible en toda la ciudad. ¿Te gustaría ver mi catálogo?
+        </div>
+        <div class="buttons-block">
+          <div class="step-btn tr-next-button" onclick="mostrarPaso2()">Sí</div>
+          <div class="step-btn tr-next-button">No</div>
+        </div>
+      </div>
+
+      <div class="step-item" id="step2" style="display: none;">
+        <div class="question-title">
+          ¡ATENCIÓN! ¿Aceptas respetar a las mujeres que verás a continuación? Si conoces a alguien, no digas nada y no difundas rumores.
+        </div>
+        <div class="buttons-block">
+          <a href="https://go-2-date.us/tds/ae?tdsId=s3419pos_r&tds_campaign=s3419pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=d1e5281c&subid={Strongeer}&subid2={subid2}&clickid={clickid}" class="step-btn submit-btn">
+            ACEPTAR
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Contenido principal -->
-  <div class="container">
-    <!-- Paso 1 -->
-    <div id="step1">
-      <div class="title">
-        Tengo experiencia sexual, soy bailarina y doy masajes eróticos. ¿Te gustaría saber más?
-      </div>
-      <button class="btn btn-yes" onclick="showStep2()">Sí</button>
-      <button class="btn btn-no" onclick="alert('Gracias por tu
+  <script>
+    function mostrarPaso2() {
+      document.getElementById("step1").style.display = "none";
+      document.getElementById("step2").style.display = "block";
+    }
+
+    // backoffer vacío por compatibilidad
+    window.backOfferUrl = '';
+  </script>
+</body>
+</html>
