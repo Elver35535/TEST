@@ -6,7 +6,6 @@
   <meta name="robots" content="noindex, nofollow" />
   <title>Discreet Meetings</title>
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -15,15 +14,14 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      height: 100vh;
       background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
       background-size: 600% 600%;
       animation: gradientMove 15s ease infinite;
       color: white;
+      height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      text-align: center;
+      align-items: center;
       overflow: hidden;
       padding: 20px;
     }
@@ -32,6 +30,72 @@
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
+    }
+
+    .lights {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .lights span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: float 20s linear infinite;
+      bottom: -150px;
+    }
+
+    .lights span:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+      width: 12px;
+      height: 12px;
+    }
+
+    .lights span:nth-child(2) {
+      left: 25%;
+      animation-delay: 5s;
+    }
+
+    .lights span:nth-child(3) {
+      left: 50%;
+      animation-delay: 3s;
+      width: 16px;
+      height: 16px;
+    }
+
+    .lights span:nth-child(4) {
+      left: 70%;
+      animation-delay: 8s;
+      width: 10px;
+      height: 10px;
+    }
+
+    .lights span:nth-child(5) {
+      left: 85%;
+      animation-delay: 2s;
+      width: 14px;
+      height: 14px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
     }
 
     .container {
@@ -43,6 +107,7 @@
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
       max-width: 400px;
       width: 100%;
+      text-align: center;
     }
 
     .title {
@@ -62,7 +127,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      box-shadow: 0 0 10px rgba(255,255,255,0.15);
     }
 
     .btn-yes {
@@ -87,27 +152,41 @@
       display: none;
     }
 
-    /* Luces flotantes */
-    .lights {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
+    @media (max-width: 480px) {
+      .title {
+        font-size: 16px;
+      }
 
-    .lights span {
-      position: absolute;
-      display: block;
-      width: 20px;
-      height: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      animation: float 20s linear infinite;
-      bottom: -150px;
+      .btn {
+        font-size: 14px;
+      }
     }
+  </style>
+</head>
+<body>
 
-    .lights span:nth
+  <!-- Luces flotantes -->
+  <div class="lights">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="container">
+    <div class="title" id="step1">
+      Tengo experiencia sexual, soy bailarina y doy masajes eróticos. ¿Te gustaría saber más?
+    </div>
+    <button class="btn btn-yes" onclick="showStep2()">Sí</button>
+    <button class="btn btn-no" onclick="alert('Gracias por tu visita')">No</button>
+
+    <div class="title hidden" id="step2">
+      ¡Genial! Solo queda un paso. Haz clic en ENTRAR para registrarte gratis y comenzar.
+    </div>
+    <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" 
+       class="btn btn-yes hidden" id="finalBtn">ENTRAR</a>
+  </div>
+
+  <script>
+    function showStep2() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+      document.getElementById('finalBtn').
