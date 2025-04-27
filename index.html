@@ -4,17 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Galleria fotografica</title>
+  <title>Galleria fotografica PRO</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <meta property="og:image" content="https://i.postimg.cc/KjzxqTLS/Screenshot-5.png">
   <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
-
-  <!-- Contatore di tracciamento (stronger114) -->
-  <script id="_wau1ca">var _wau = _wau || []; _wau.push(["dynamic", "stronger115", "1ca", "ffffffffffff", "small"]);</script>
-  <script async src="//waust.at/d.js"></script>
 
   <style>
     * {
@@ -26,21 +22,19 @@
     html, body {
       height: 100%;
       font-family: 'Poppins', sans-serif;
-      color: #fff;
       background-color: #000;
-      overflow-x: hidden;
+      color: #fff;
+      overflow: hidden;
     }
 
     .wrap {
       position: relative;
-      min-height: 100vh;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      text-align: center;
-      overflow: hidden;
     }
 
     #VideoBg {
@@ -57,57 +51,89 @@
       position: relative;
       z-index: 1;
       background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 12px;
+      padding: 30px 20px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 360px;
+      animation: fadeIn 1.5s ease;
     }
 
     .logo img {
       max-width: 180px;
       margin-bottom: 25px;
       filter: drop-shadow(0 0 10px #fff);
+      animation: floatLogo 3s infinite ease-in-out;
     }
 
     .question-title {
       font-size: 1.6rem;
       margin: 20px 0;
       text-shadow: 1px 1px 3px #000;
+      animation: fadeInUp 1s ease;
     }
 
     .buttons-block {
       display: flex;
       flex-direction: column;
       gap: 16px;
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto;
+      margin-top: 20px;
     }
 
     .step-btn {
       padding: 14px 20px;
-      background: linear-gradient(45deg, #ff0080, #7928ca);
+      background: linear-gradient(135deg, #ff0080, #7928ca);
       color: #fff;
       font-weight: 600;
       font-size: 1rem;
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(255, 0, 128, 0.4);
       text-decoration: none;
-      display: block;
-      text-align: center;
     }
 
     .step-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 0, 128, 0.6);
+      transform: scale(1.07);
+      box-shadow: 0 8px 20px rgba(255, 0, 128, 0.6);
+    }
+
+    .step-item {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .step-item.active {
+      display: block;
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     @media (max-width: 480px) {
       .question-title {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
-
       .step-btn {
         font-size: 0.95rem;
       }
@@ -127,7 +153,7 @@
       </div>
 
       <div class="step-block">
-        <div class="step-item" id="step1">
+        <div class="step-item active" id="step1">
           <div class="question-title">
             Veniamo da te di notte, servizio disponibile in tutta la città. Vuoi vedere il mio catalogo?
           </div>
@@ -137,7 +163,7 @@
           </div>
         </div>
 
-        <div class="step-item" id="step2" style="display: none;">
+        <div class="step-item" id="step2">
           <div class="question-title">
             ATTENZIONE! Accetti di rispettare le donne che vedrai? Se ne riconosci una, non dire nulla e non diffondere pettegolezzi.
           </div>
@@ -147,14 +173,21 @@
             </a>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 
   <script>
     function mostrarPaso2() {
-      document.getElementById("step1").style.display = "none";
-      document.getElementById("step2").style.display = "block";
+      document.getElementById("step1").classList.remove("active");
+      setTimeout(() => {
+        document.getElementById("step1").style.display = "none";
+        document.getElementById("step2").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("step2").classList.add("active");
+        }, 50);
+      }, 500);
     }
   </script>
 
